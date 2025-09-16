@@ -1,3 +1,10 @@
+# Assignment Goals:
+#    If the car’s speed is less than 70 -> print "Ok".
+#    If the car’s speed is 70 or more:
+#       a. For every 5 km more than 70, give 1 demerit point and then print number of demerit points "Points: X".
+#           e.g. 80 - 70 = 10 >>> 10/5 = 2 Demerit Points 
+#       b. If the points are more than 12, print "License Suspended".
+
 def speed_detector(speed):
     # Set the maximum allowed speed
     speed_limit = 70
