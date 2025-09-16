@@ -15,12 +15,12 @@ def calculate_net_salary(basic_salary, benefits):
     elif gross_salary <= 14999:
         nhif_deduction = 500
     else:
-        nhif_deduction = 600   # simplified flat rate
-
+        nhif_deduction = 600   
+        
     # Taxable income = gross - NSSF
     taxable_income = gross_salary - nssf_deduction
 
-    # PAYE Tax (simplified Kenyan bands)
+    # PAYE Tax 
     if taxable_income <= 24000:
         tax = 0.1 * taxable_income
     elif taxable_income <= 32333:
@@ -47,5 +47,5 @@ def calculate_net_salary(basic_salary, benefits):
     print("Note: This is a simplified calculator. Actual NHIF & PAYE rates may differ slightly.\n")
 
 
-# Example test
+#trial out
 calculate_net_salary(50000, 10000)
