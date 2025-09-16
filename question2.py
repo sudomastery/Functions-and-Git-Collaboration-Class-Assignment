@@ -8,9 +8,11 @@
 # Create a class called Payroll whose major task is to calculate an individual’s Net Salary by getting the inputs basic salary and benefits. Create 5 different class methods which will calculate the payee (i.e. Tax), NHIFDeductions, NSSFDeductions, gross salary, and net salary.
 
 #Instructions were to primarily make use of functions
-def calculate_payroll():
-    salary = int(input("Enter you monthly salary: "))
 
+salary = int(input("Enter your gross monthly salary: "))
+
+
+def calculate_payee():    
     #get the payee
     if salary <= 24000:
         payee = salary * 0.1
@@ -24,6 +26,23 @@ def calculate_payroll():
         payee = salary * 0.35
     else:
         print("Enter a valid salary value")
+    return payee
 
+def calculate_shif():
     #SHIF🤢
-    
+    shif = salary * 0.0275
+    return shif
+
+def calculate_nssf():
+    nssf = salary * 0.06
+    return nssf
+
+def calculate_housing_levy():
+    housing_levy = salary * 0.015
+    return housing_levy
+
+def calculate_net_salary():
+    net_salary = salary -(calculate_payee() + calculate_shif() + calculate_nssf() + calculate_housing_levy())
+    return print(f"Your net salary is: {net_salary}")
+
+calculate_net_salary()
