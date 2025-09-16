@@ -13,3 +13,7 @@ print(f'Gross salary: Ksh {gross_salary:.2f}')
 nssf_pensionable_salary=min(gross_salary,72000)
 nssf_deduction=nssf_pensionable_salary*0.06
 print(f'NSSF Deduction: Ksh {nssf_deduction:.2f}')
+
+# SHIF deduction
+shif_deduction=gross_salary*0.0275
+print(f'SHIF Deduction: Ksh{shif_deduction:.2f}')
