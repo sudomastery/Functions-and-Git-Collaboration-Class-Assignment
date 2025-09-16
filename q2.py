@@ -1,27 +1,27 @@
 def calculate_net_salary(basic_salary, benefits):
-    # Gross salary = basic salary + benefits
-    gross_salary = basic_salary + benefits
+ # Gross salary = basic salary + benefits
+gross_salary = basic_salary + benefits
 
-    # NSSF deduction (6% of basic up to a max of 2000)
-    nssf_deduction = min(0.06 * basic_salary, 2000)
+ # NSSF deduction (6% of basic up to a max of 2000)
+ nssf_deduction = min(0.06 * basic_salary, 2000)
 
-    # NHIF deduction (simplified example rates)
-    if gross_salary <= 5999:
+# NHIF deduction (simplified example rates)
+if gross_salary <= 5999:
         nhif_deduction = 150
-    elif gross_salary <= 7999:
+elif gross_salary <= 7999:
         nhif_deduction = 300
-    elif gross_salary <= 11999:
+elif gross_salary <= 11999:
         nhif_deduction = 400
-    elif gross_salary <= 14999:
+elif gross_salary <= 14999:
         nhif_deduction = 500
-    else:
+else:
         nhif_deduction = 600   # simplified flat rate
 
     # taxable income = gross - NSSF
     taxable_income = gross_salary - nssf_deduction
 
     # PAYE Tax (simplified Kenyan bands)
-    if taxable_income <= 24000:
+ if taxable_income <= 24000:
         tax = 0.1 * taxable_income
     elif taxable_income <= 32333:
         tax = (0.1 * 24000) + (0.25 * (taxable_income - 24000))

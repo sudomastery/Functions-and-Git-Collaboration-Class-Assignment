@@ -12,7 +12,7 @@ def check_speed(speed):
         else:
             print(f"Points: {points}")
 
-# test
+#try on
 check_speed(80)   # Output: Points: 2
 check_speed(60)   # Output: Ok
 check_speed(135)  # Output: License suspended
