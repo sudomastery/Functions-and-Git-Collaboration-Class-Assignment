@@ -15,44 +15,47 @@ gross_salary = basic_salary + benefits
 
 
 
-#confirmed accurate
+
+#SHIF
 def calculate_shif():
-    #SHIF🤢
     shif = gross_salary * 0.0275
     return shif
 
 #going to assume tier 1 only for now
 def calculate_nssf():
-    if gross_salary < 3000:
-        nssf = gross_salary
-    elif gross_salary > 8000:
-        nssf = 8000
+    if gross_salary <= 0:
+        nssf = 0
+    elif gross_salary <= 8000:
+        nssf = gross_salary * 0.06
     else:
-        print("Incorrect value entered")
+        nssf = 8000 * 0.06
     return nssf
 
 def calculate_housing_levy():
-    #Housing Levy🤢🤢🤢🤢🤢🤢
+    #Housing Levy🤮🤮🤮🤮
     housing_levy = gross_salary * 0.015
     return housing_levy
 
 taxable_income = gross_salary - (calculate_shif() + calculate_nssf() + calculate_housing_levy())
-
 def calculate_payee():    
     #get the payee
-    if taxable_income <= 24000:
-        payee = taxable_income * 0.1
+    if taxable_income <= 0:
+        payee = 0
+    elif taxable_income <= 24000:
+        payee = taxable_income * 0.10
     elif taxable_income <= 32333:
-        payee = taxable_income * 0.25
+        payee = (24000 * 0.10) + ((taxable_income - 24000) * 0.25)
     elif taxable_income <= 500000:
-        payee = taxable_income * 0.3
+        payee = (24000 * 0.10) + ((32333 - 24000) * 0.25) + ((taxable_income - 32333) * 0.30)
     elif taxable_income <= 800000:
-        payee = taxable_income * 0.325
-    elif taxable_income > 800000:
-        payee = taxable_income * 0.35
+        payee = (24000 * 0.10) + ((32333 - 24000) * 0.25) + ((500000 - 32333) * 0.30) + ((taxable_income - 500000) * 0.325)
     else:
-        print("Enter a valid salary value")
+        payee = (24000 * 0.10) + ((32333 - 24000) * 0.25) + ((500000 - 32333) * 0.30) + ((800000 - 500000) * 0.325) + ((taxable_income - 800000) * 0.35)
+    payee = payee - 2400
+    if payee < 0:
+        payee = 0
     return payee
+    
 
 
 
