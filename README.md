@@ -31,4 +31,5 @@ The program ensures accurate salary breakdown according to statutory deductions.
 
 ## Collaboration
 
-This project was done in collaboration using Git and GitHub. Team members contributed via branches, commits, and pull requests.
+This project was done in collaboration using Git and GitHub.
+ Team members Eva ,Roy ,Elijah and David contributed via branches, commits, and pull requests.
