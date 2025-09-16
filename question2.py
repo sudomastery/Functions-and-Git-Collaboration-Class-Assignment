@@ -13,9 +13,6 @@ basic_salary = float(input("Enter your gross monthly salary: "))
 benefits = float(input("Enter your total benefits: "))
 gross_salary = basic_salary + benefits
 
-
-
-
 #SHIF
 def calculate_shif():
     shif = gross_salary * 0.0275
@@ -61,6 +58,7 @@ def calculate_payee():
 
 def calculate_net_salary():
     net_salary = taxable_income - calculate_payee()
-    return print(f"Your net salary is: {net_salary}")
+    final_net_salary =round(net_salary, 2)
+    return print(f"Your net salary is: {final_net_salary}")
 
 calculate_net_salary()
