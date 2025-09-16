@@ -6,9 +6,9 @@ def check_speed(speed):
         print('ok')
     else:
     # calculate demerits points for every 5 km/s above 70
-        points = (speed-70)
+        points = (speed-70)//5
         print (f'points:{points}')
     #  if demerit points are more than 12 function to print license suspended
         if points>12:
             print('License suspended')
-check_speed(83)
+check_speed(135)
