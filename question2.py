@@ -9,22 +9,34 @@
 
 #Instructions were to primarily make use of functions
 
-salary = int(input("Enter your gross monthly salary: "))
+basic_salary = float(input("Enter your gross monthly salary: "))
+benefits = float(input("Enter your total benefits: "))
+gross_salary = basic_salary + benefits
 
+
+
+#confirmed accurate
 def calculate_shif():
     #SHIF🤢
-    shif = salary * 0.0275
+    shif = gross_salary * 0.0275
     return shif
 
+#going to assume tier 1 only for now
 def calculate_nssf():
-    nssf = salary * 0.06
+    if gross_salary < 3000:
+        nssf = gross_salary
+    elif gross_salary > 8000:
+        nssf = 8000
+    else:
+        print("Incorrect value entered")
     return nssf
 
 def calculate_housing_levy():
-    housing_levy = salary * 0.015
+    #Housing Levy🤢🤢🤢🤢🤢🤢
+    housing_levy = gross_salary * 0.015
     return housing_levy
 
-taxable_income = salary - (calculate_shif() + calculate_nssf() + calculate_housing_levy())
+taxable_income = gross_salary - (calculate_shif() + calculate_nssf() + calculate_housing_levy())
 
 def calculate_payee():    
     #get the payee
@@ -45,7 +57,7 @@ def calculate_payee():
 
 
 def calculate_net_salary():
-    net_salary = salary -(calculate_payee() + calculate_shif() + calculate_nssf() + calculate_housing_levy())
+    net_salary = taxable_income - calculate_payee()
     return print(f"Your net salary is: {net_salary}")
 
 calculate_net_salary()
