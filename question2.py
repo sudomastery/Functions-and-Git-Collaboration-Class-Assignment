@@ -18,7 +18,7 @@ def calculate_shif():
     shif = gross_salary * 0.0275
     return shif
 
-#going to assume tier 1 only for now
+#going to assume tier 1 only for now  make nssf as first deduction
 def calculate_nssf():
     if gross_salary <= 0:
         nssf = 0
@@ -29,11 +29,12 @@ def calculate_nssf():
     return nssf
 
 def calculate_housing_levy():
-    #Housing Levy🤮🤮🤮🤮
+    #Housing Levy
     housing_levy = gross_salary * 0.015
     return housing_levy
 
 taxable_income = gross_salary - (calculate_shif() + calculate_nssf() + calculate_housing_levy())
+
 def calculate_payee():    
     #get the payee
     if taxable_income <= 0:
@@ -48,9 +49,9 @@ def calculate_payee():
         payee = (24000 * 0.10) + ((32333 - 24000) * 0.25) + ((500000 - 32333) * 0.30) + ((taxable_income - 500000) * 0.325)
     else:
         payee = (24000 * 0.10) + ((32333 - 24000) * 0.25) + ((500000 - 32333) * 0.30) + ((800000 - 500000) * 0.325) + ((taxable_income - 800000) * 0.35)
+    # personal relief
     payee = payee - 2400
-    if payee < 0:
-        payee = 0
+ 
     return payee
     
 
