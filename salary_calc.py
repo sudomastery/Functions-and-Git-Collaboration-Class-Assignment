@@ -8,3 +8,8 @@ gross_salary=basic_salary+benefits
 
 # print the gross salary
 print(f'Gross salary: Ksh {gross_salary:.2f}')
+
+# NSSF deduction
+nssf_pensionable_salary=min(gross_salary,72000)
+nssf_deduction=nssf_pensionable_salary*0.06
+print(f'NSSF Deduction: Ksh {nssf_deduction:.2f}')
