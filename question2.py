@@ -11,23 +11,6 @@
 
 salary = int(input("Enter your gross monthly salary: "))
 
-
-def calculate_payee():    
-    #get the payee
-    if salary <= 24000:
-        payee = salary * 0.1
-    elif salary <= 32333:
-        payee = salary * 0.25
-    elif salary <= 500000:
-        payee = salary * 0.3
-    elif salary <= 800000:
-        payee = salary * 0.325
-    elif salary > 800000:
-        payee = salary * 0.35
-    else:
-        print("Enter a valid salary value")
-    return payee
-
 def calculate_shif():
     #SHIF🤢
     shif = salary * 0.0275
@@ -40,6 +23,26 @@ def calculate_nssf():
 def calculate_housing_levy():
     housing_levy = salary * 0.015
     return housing_levy
+
+taxable_income = salary - (calculate_shif() + calculate_nssf() + calculate_housing_levy())
+
+def calculate_payee():    
+    #get the payee
+    if taxable_income <= 24000:
+        payee = taxable_income * 0.1
+    elif taxable_income <= 32333:
+        payee = taxable_income * 0.25
+    elif taxable_income <= 500000:
+        payee = taxable_income * 0.3
+    elif taxable_income <= 800000:
+        payee = taxable_income * 0.325
+    elif taxable_income > 800000:
+        payee = taxable_income * 0.35
+    else:
+        print("Enter a valid salary value")
+    return payee
+
+
 
 def calculate_net_salary():
     net_salary = salary -(calculate_payee() + calculate_shif() + calculate_nssf() + calculate_housing_levy())
